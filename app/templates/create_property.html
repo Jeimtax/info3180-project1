@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1> Add New Property</h1>
+
+<form class="propertyform" method="post" enctype="multipart/form-data">
+    {{ form.csrf_token}}
+
+    {% for field in [form.property_title, form.description] %}
+        {{field.label(style="font-weight:500")}}
+        {{field()}}
+        
+    {% endfor %}
+        
+    {% for left, right in [(form.bedrooms, form.bathrooms) , (form.price, form.type)] %}
+        <div class="section">
+            <div class="section-left">
+                {{left.label(style="font-weight:500")}}
+                {{left()}}
+            </div>
+            <div class="section-right">
+                {{right.label(style="font-weight:500")}}
+                {{right()}}
+            </div>
+        </div>
+    {%endfor%}
+
+    {{form.location.label(style="font-weight:500")}}
+    {{form.location(style="width: 45%")}}
+
+    {{form.image.label(style="font-weight:500")}}
+    <label class="image-file">
+        Browse
+        {{ form.image(style="display: none") }}
+    </label>
+
+    {{form.add_property(class="add")}}
+
+</form>
+{% endblock %}
