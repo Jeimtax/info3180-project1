@@ -5,9 +5,12 @@ Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
 
-from app import app
-from flask import render_template, request, redirect, url_for
-
+from app import app, db
+from flask import render_template, request, redirect, url_for, flash
+from .forms import PropertyForm
+from .models import Properties
+import os
+from werkzeug.utils import secure_filename
 
 ###
 # Routing for your application.
@@ -17,6 +20,49 @@ from flask import render_template, request, redirect, url_for
 def home():
     """Render website's home page."""
     return render_template('home.html')
+
+@app.route('/properties/create', methods=['GET', 'POST'])
+def create():
+    form = PropertyForm()
+    if form.validate_on_submit():
+        if form.image.data:
+            image = form.image.data
+            filename = secure_filename(image.filename)
+            
+            upload_path = os.path.join(app.root_path, 'static/property_pics', filename)
+            image.save(upload_path)
+        else:
+            filename = 'default.jpg' 
+
+        property = Properties(
+            title = form.property_title.data,
+            description = form.description.data,
+            bedrooms = form.bedrooms.data,
+            bathrooms = form.bathrooms.data,
+            price = form.price.data,
+            property_type = form.type.data,
+            location = form.location.data,
+            image_file = filename
+        )
+        
+        db.session.add(property)
+        db.session.commit()  
+        flash('New Property was added!', 'success')
+        return redirect(url_for('properties'))  
+    return render_template('create_property.html', form=form)
+
+    
+    
+@app.route('/properties')
+def properties():
+    properties = Properties.query.all()
+    return render_template('properties.html', properties=properties)
+
+
+@app.route('/properties/<propertyid>')
+def propertyid(propertyid):
+    property = Properties.query.get_or_404(propertyid)
+    return render_template('property.html', property=property)
 
 
 @app.route('/about/')

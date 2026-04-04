@@ -1,0 +1,39 @@
+{% extends "base.html"%}
+
+{% block main %}
+
+<div class="property-detail-container">
+    <div class="property-img">
+        <img src="{{ url_for('static', filename='property_pics/' + property.image_file) }}" alt="{{ property.title }}">
+    </div>
+
+    <div class="attributes">
+        <h1 class="property-title">{{ property.title }}</h1>
+
+        <div class="tags-container">
+            <span class="price-pill">${{ "{:,.0f}".format(property.price) }}</span>
+            <span class="type-pill {{ property.property_type|lower }}">{{ property.property_type }}</span>
+        </div>
+
+        <p class="description">{{ property.description }}</p>
+
+        <div class="property-specs">
+            <div class="spec-item">
+                <i class="fa-solid fa-bed"></i> <span>{{ property.bedrooms }} Bedrooms</span>
+            </div>
+            <div class="spec-item">
+                <i class="fa-solid fa-bath"></i>
+                <span>{{ property.bathrooms }} Bathrooms</span>
+            </div>
+        </div>
+
+        <p class="location">
+            <i class="fa-solid fa-location-dot"></i> {{ property.location }}
+        </p>
+
+        <a href="" class="email-btn">Email Realtor</a>
+    </div>
+</div>
+
+
+{% endblock%}

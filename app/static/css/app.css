@@ -1,3 +1,217 @@
 body {
     padding-top: 5rem;
+    background-color:aliceblue;
 }
+
+
+.propertyform{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    padding: 20px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-left, .section-right {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.image-file{
+    
+    border: solid, 2px;
+    border-radius: 3px;
+    max-width: 15%;
+    padding: 4px;
+    margin-bottom: 10px;
+    
+    
+}
+
+.add {
+    width: 25%; 
+    background-color: blue; 
+    color: white;
+    border-radius: 5px;
+    padding: 4px 
+}
+
+
+.properties-listing {
+    display: flex;
+    justify-content: space-between ;
+    margin-top: 20px;
+}
+
+.each-prop {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+}
+
+.each-prop img {
+    height: 250px;
+    width: 400px;
+}
+
+.each-prop h5 {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+
+
+.each-prop .location {
+    color: grey;
+    margin-left: 20px;
+}
+
+
+.each-prop .price {
+    color: white;
+    border-radius: 10px;
+    background-color: blue;
+    width: fit-content;
+    margin-left: 20px;
+    padding: 5px 15px;
+}
+
+.each-prop button {
+    text-decoration: none;
+    border: none;
+    background-color: #198754;
+    color: white;
+    font-weight: 500;
+    padding: 15px 20px;
+}
+
+/* property.html */
+
+.property-detail-container {
+    display: flex; 
+    background-color: #f9f9f9; 
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);/
+}
+
+
+.property-img {
+    flex: 1; 
+    max-width: 50%;
+}
+
+.property-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+
+.attributes {
+    flex: 1; 
+    padding: 40px; 
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.property-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+}
+
+
+.tags-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.price-pill, .type-pill {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 50px; 
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: fit-content; 
+}
+
+.price-pill {
+    background-color: #6495ED; 
+}
+
+.type-pill {
+    background-color: #f39c12; /
+}
+ 
+
+.description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+
+.property-specs {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.spec-item i {
+    color: #333; 
+    font-size: 1.2rem;
+}
+
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.location i {
+    color: #333; 
+}
+
+
+.email-btn {
+    display: inline-block;
+    background-color: #20B2AA; 
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    text-decoration: none; 
+    font-weight: bold;
+    border-radius: 5px;
+    width: fit-content; 
+    align-self: flex-start; /
+}
+
